@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 
 namespace Monogame_1___Adding_Content
 {
@@ -8,7 +11,9 @@ namespace Monogame_1___Adding_Content
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
+        Rectangle window;
+        Texture2D dinoTexture;
+        Texture2D Token;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -19,6 +24,15 @@ namespace Monogame_1___Adding_Content
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            window = new Rectangle (0, 0, 800, 500);
+            //Title of game window
+            this.Window.Title = "Awesome Sauce";
+            //generator = new Random();
+            //dinoLocation = new Vector2(10, 10);
+            //Resize Window
+            _graphics.PreferredBackBufferWidth = window.Width;
+            _graphics.PreferredBackBufferWidth = window.Height;
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -26,7 +40,9 @@ namespace Monogame_1___Adding_Content
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            dinoTexture = Content.Load<Texture2D>("dino");
+            Token = Content.Load<Texture2D>("Token");
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -42,10 +58,16 @@ namespace Monogame_1___Adding_Content
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.BlanchedAlmond);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin();
 
+            _spriteBatch.Draw(dinoTexture, new Vector2(10, 10), Color.White);
+            _spriteBatch.Draw(dinoTexture, dinoLocation, Color.Red);
+            _spriteBatch.Draw(Token, new Vector2(-5, -15), Color.White);
+
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }
