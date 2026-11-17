@@ -63,8 +63,8 @@ namespace Monogame_1___Adding_Content
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(dinoTexture, new Vector2(10, 10), Color.White);
-            _spriteBatch.Draw(dinoTexture, dinoLocation, Color.Red);
+            _spriteBatch.Draw(dinoTexture, new Vector2(10, 10), Color.White *0.5f);
+            //_spriteBatch.Draw(dinoTexture, dinoLocation, Color.Red);
             _spriteBatch.Draw(Token, new Vector2(-5, -15), Color.White);
 
             _spriteBatch.End();
