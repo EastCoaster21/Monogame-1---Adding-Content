@@ -12,8 +12,11 @@ namespace Monogame_1___Adding_Content
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Rectangle window;
+        Texture2D background;
         Texture2D dinoTexture;
-        Texture2D Token;
+        Texture2D token;
+        Texture2D chest;
+        Texture2D luffy;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -41,8 +44,11 @@ namespace Monogame_1___Adding_Content
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             dinoTexture = Content.Load<Texture2D>("dino");
-            Token = Content.Load<Texture2D>("Token");
-            
+            background = Content.Load<Texture2D>("one-piece-fortnite-attack");
+            token = Content.Load<Texture2D>("Token");
+            chest = Content.Load<Texture2D>("Chest");
+            luffy = Content.Load<Texture2D>("icon");
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -63,9 +69,13 @@ namespace Monogame_1___Adding_Content
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(dinoTexture, new Vector2(10, 10), Color.White *0.5f);
+            _spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            //_spriteBatch.Draw(dinoTexture, new Vector2(10, 10), Color.White *0.5f);
             //_spriteBatch.Draw(dinoTexture, dinoLocation, Color.Red);
-            _spriteBatch.Draw(Token, new Vector2(-5, -15), Color.White);
+            _spriteBatch.Draw(token, new Vector2(-5, -15), Color.White);
+            _spriteBatch.Draw(chest, new Vector2(400, 385), Color.White);
+            _spriteBatch.Draw(luffy, new Vector2(-30, 250), Color.White);
+
 
             _spriteBatch.End();
             base.Draw(gameTime);
